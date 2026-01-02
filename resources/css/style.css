@@ -1,0 +1,530 @@
+/*
+ * GTK Python Dashboard Starter - Dark Theme CSS
+ * Updated: 28px buttons, 70px logo area
+ */
+
+/* ============================================
+   Global Styles
+   ============================================ */
+
+* {
+    font-family: Ubuntu, Cantarell, sans-serif;
+    font-size: 11pt;
+    color: #eeeeee;
+}
+
+window {
+    background-color: #2d2d2d;
+}
+
+/* ============================================
+   Sidebar Styles
+   ============================================ */
+
+.sidebar {
+    background-color: #353535;
+    border-right: 1px solid #1a1a1a;
+    min-width: 150px;
+}
+
+/* Logo area - balanced 70px height */
+.logo-area {
+    background-color: #3a3a3a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 12px 0;
+    min-height: 70px;
+}
+
+.logo-text {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Navigation buttons - thinner 28px, squared, no spacing */
+.nav-button {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    padding: 6px 10px;
+    margin: 0;
+    color: #d0d0d0;
+    font-size: 10pt;
+    box-shadow: none;
+    min-height: 28px;
+}
+
+.nav-button:hover {
+    background-color: #404040;
+    color: #ffffff;
+}
+
+.nav-button:active {
+    background-color: #0078D7;
+    color: #ffffff;
+}
+
+.nav-button.active {
+    background-color: #0078D7;
+    color: #ffffff;
+}
+
+.nav-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* ============================================
+   Content Area Styles
+   ============================================ */
+
+.content-area {
+    background-color: #2d2d2d;
+    padding: 0;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    background-color: #2d2d2d;
+    border: none;
+}
+
+scrollbar slider {
+    background-color: #505050;
+    border-radius: 8px;
+    min-width: 10px;
+    min-height: 10px;
+}
+
+scrollbar slider:hover {
+    background-color: #606060;
+}
+
+scrollbar slider:active {
+    background-color: #707070;
+}
+
+/* ============================================
+   Page Content Styles - Left Aligned
+   ============================================ */
+
+.page-title {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.page-subtitle {
+    font-size: 14pt;
+    font-weight: 500;
+    color: #d0d0d0;
+    margin-bottom: 10px;
+}
+
+label {
+    color: #d0d0d0;
+}
+
+/* ============================================
+   Button Styles (General)
+   ============================================ */
+
+button {
+    background-color: #404040;
+    background-image: none;
+    border: 1px solid #555555;
+    border-radius: 2px;
+    padding: 8px 16px;
+    color: #eeeeee;
+    box-shadow: none;
+}
+
+button:hover {
+    background-color: #4a4a4a;
+    border-color: #666666;
+    color: #ffffff;
+}
+
+button:active {
+    background-color: #505050;
+    border-color: #777777;
+}
+
+button:focus {
+    outline: none;
+    border-color: #0078D7;
+}
+
+button:disabled {
+    background-color: #353535;
+    color: #808080;
+    border-color: #404040;
+}
+
+/* Primary action buttons */
+.primary-button {
+    background-color: #0078D7;
+    border-color: #0066BB;
+    color: #ffffff;
+}
+
+.primary-button:hover {
+    background-color: #1084E3;
+    border-color: #0078D7;
+}
+
+.primary-button:active {
+    background-color: #0066BB;
+}
+
+/* Destructive buttons */
+.destructive-button {
+    background-color: #cc3333;
+    border-color: #bb2222;
+    color: #ffffff;
+}
+
+.destructive-button:hover {
+    background-color: #dd4444;
+}
+
+.destructive-button:active {
+    background-color: #bb2222;
+}
+
+/* ============================================
+   Entry/Input Styles
+   ============================================ */
+
+entry {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+    border-radius: 2px;
+    padding: 8px;
+    color: #eeeeee;
+}
+
+entry:focus {
+    border-color: #0078D7;
+    outline: none;
+}
+
+entry:disabled {
+    background-color: #2d2d2d;
+    color: #808080;
+}
+
+entry selection {
+    background-color: #0078D7;
+    color: #ffffff;
+}
+
+/* ============================================
+   TextView Styles
+   ============================================ */
+
+textview {
+    background-color: #3a3a3a;
+    color: #eeeeee;
+}
+
+textview text {
+    background-color: #3a3a3a;
+    color: #eeeeee;
+}
+
+textview text selection {
+    background-color: #0078D7;
+    color: #ffffff;
+}
+
+/* ============================================
+   TreeView / ListView Styles
+   ============================================ */
+
+treeview {
+    background-color: #2d2d2d;
+    color: #d0d0d0;
+}
+
+treeview:selected {
+    background-color: #0078D7;
+    color: #ffffff;
+}
+
+treeview:hover {
+    background-color: #353535;
+}
+
+treeview header {
+    background-color: #3a3a3a;
+    border-bottom: 1px solid #1a1a1a;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* ============================================
+   Notebook / Tabs Styles
+   ============================================ */
+
+notebook {
+    background-color: #2d2d2d;
+}
+
+notebook header {
+    background-color: #353535;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+notebook tab {
+    background-color: transparent;
+    border: none;
+    padding: 8px 16px;
+    color: #a0a0a0;
+}
+
+notebook tab:hover {
+    background-color: #3a3a3a;
+    color: #d0d0d0;
+}
+
+notebook tab:checked {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-bottom: 2px solid #0078D7;
+}
+
+/* ============================================
+   Menu Styles
+   ============================================ */
+
+menubar {
+    background-color: #353535;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 2px;
+}
+
+menubar > menuitem {
+    padding: 5px 10px;
+    color: #d0d0d0;
+}
+
+menubar > menuitem:hover {
+    background-color: #404040;
+    color: #ffffff;
+}
+
+menu {
+    background-color: #353535;
+    border: 1px solid #1a1a1a;
+    padding: 5px;
+}
+
+menuitem {
+    padding: 6px 12px;
+    color: #d0d0d0;
+}
+
+menuitem:hover {
+    background-color: #0078D7;
+    color: #ffffff;
+}
+
+menuitem:disabled {
+    color: #808080;
+}
+
+/* ============================================
+   Toolbar Styles
+   ============================================ */
+
+toolbar {
+    background-color: #353535;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 5px;
+}
+
+toolbar button {
+    background-color: transparent;
+    border: none;
+}
+
+toolbar button:hover {
+    background-color: #404040;
+}
+
+/* ============================================
+   Separator Styles
+   ============================================ */
+
+separator {
+    background-color: #1a1a1a;
+    min-width: 1px;
+    min-height: 1px;
+}
+
+/* ============================================
+   Progress Bar Styles
+   ============================================ */
+
+progressbar {
+    background-color: #3a3a3a;
+    border-radius: 2px;
+}
+
+progressbar progress {
+    background-color: #0078D7;
+    border-radius: 2px;
+}
+
+progressbar trough {
+    background-color: #3a3a3a;
+    border-radius: 2px;
+}
+
+/* ============================================
+   CheckBox and Radio Styles
+   ============================================ */
+
+checkbutton,
+radiobutton {
+    color: #d0d0d0;
+}
+
+checkbutton:hover,
+radiobutton:hover {
+    color: #ffffff;
+}
+
+check,
+radio {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+}
+
+check:checked,
+radio:checked {
+    background-color: #0078D7;
+    border-color: #0066BB;
+}
+
+/* ============================================
+   Tooltip Styles
+   ============================================ */
+
+tooltip {
+    background-color: #454545;
+    border: 1px solid #1a1a1a;
+    border-radius: 2px;
+    padding: 5px 10px;
+    color: #ffffff;
+}
+
+tooltip * {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+/* ============================================
+   Dialog Styles
+   ============================================ */
+
+dialog {
+    background-color: #2d2d2d;
+}
+
+.dialog-action-area {
+    background-color: #353535;
+    border-top: 1px solid #1a1a1a;
+    padding: 10px;
+}
+
+/* ============================================
+   Miscellaneous
+   ============================================ */
+
+/* Spinbutton */
+spinbutton {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+    border-radius: 2px;
+}
+
+spinbutton button {
+    background-color: #404040;
+    border: none;
+}
+
+/* Combobox */
+combobox button {
+    background-color: #404040;
+    border: 1px solid #555555;
+}
+
+combobox arrow {
+    color: #d0d0d0;
+}
+
+/* Scale/Slider */
+scale {
+    background-color: transparent;
+}
+
+scale trough {
+    background-color: #3a3a3a;
+    border-radius: 2px;
+    min-height: 6px;
+}
+
+scale slider {
+    background-color: #0078D7;
+    border: 1px solid #0066BB;
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+scale slider:hover {
+    background-color: #1084E3;
+}
+
+/* ============================================
+   Custom Application Classes
+   ============================================ */
+
+.card {
+    background-color: #353535;
+    border: 1px solid #404040;
+    border-radius: 3px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.info-label {
+    color: #0078D7;
+}
+
+.warning-label {
+    color: #f39c12;
+}
+
+.error-label {
+    color: #cc3333;
+}
+
+.success-label {
+    color: #27ae60;
+}
+
+.subtle-text {
+    color: #909090;
+    font-size: 9pt;
+}
+
+.header-text {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #ffffff;
+}
