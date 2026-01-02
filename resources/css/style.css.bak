@@ -64,7 +64,6 @@ window {
     background-color: transparent;
     background-image: none;
     border: none;
-    border-bottom: 1px solid #1a1a1a;
     border-radius: 0;
     padding: 6px 10px;
     margin: 0;
@@ -76,7 +75,6 @@ window {
 
 .nav-button:hover {
     background-color: #404040;
-    border-color: #1a1a1a;
     color: #ffffff;
 }
 
@@ -87,7 +85,6 @@ window {
 
 .nav-button.active {
     background-color: #0078D7;
-    border-color: #1a1a1a;
     color: #ffffff;
 }
 
@@ -99,12 +96,6 @@ window {
 .nav-button:focus {
     outline: none;
     box-shadow: none;
-}
-
-/* Navigation button at bottom (Settings) - top border only */
-.nav-button-bottom {
-    border-bottom: none;
-    border-top: 1px solid #1a1a1a;
 }
 
 /* ============================================

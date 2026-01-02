@@ -1,7 +1,7 @@
 """
 Sidebar Component
 Fixed sidebar with logo and navigation
-Updated: Settings button at bottom with spacer
+Updated: Settings button has top border, others have bottom border
 """
 
 import gi
@@ -112,17 +112,33 @@ class Sidebar(Gtk.Box):
         # Bottom navigation container for Settings
         nav_box_bottom = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         
-        settings_button = self.create_nav_button("Settings", "settings")
+        # Create Settings button with special styling
+        settings_button = self.create_nav_button("Settings", "settings", is_bottom=True)
         nav_box_bottom.pack_start(settings_button, False, False, 0)
         self.nav_buttons["settings"] = settings_button
         
         # Add bottom navigation
         self.pack_start(nav_box_bottom, False, False, 0)
     
-    def create_nav_button(self, label, page_id):
-        """Create navigation button"""
+    def create_nav_button(self, label, page_id, is_bottom=False):
+        """
+        Create navigation button
+        
+        Args:
+            label: Button label text
+            page_id: Page identifier for navigation
+            is_bottom: If True, applies bottom button styling (top border)
+        
+        Returns:
+            Gtk.Button: Configured navigation button
+        """
         button = Gtk.Button(label=label)
         button.get_style_context().add_class('nav-button')
+        
+        # Add special class for bottom button (Settings)
+        if is_bottom:
+            button.get_style_context().add_class('nav-button-bottom')
+        
         button.set_relief(Gtk.ReliefStyle.NONE)
         button.connect("clicked", self.on_nav_clicked, page_id)
         

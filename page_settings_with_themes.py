@@ -1,7 +1,7 @@
 """
 Settings Page
 Dashboard configuration and technical details
-Updated: Improved layout with separators
+Updated: Theme selector replaces Color Scheme section
 """
 
 import gi
@@ -32,13 +32,14 @@ class SettingsPage(BasePage):
             "Customize your dashboard appearance and view technical details."
         )
         
-        # Separator
-        self.add_separator()
-        
         # Theme selector section
         self.add_subtitle("Theme")
         
-        # Create theme selector widget (removed redundant text)
+        self.add_paragraph(
+            "Select a dark theme for your dashboard:"
+        )
+        
+        # Create theme selector widget
         themes = get_all_themes()
         theme_selector = ThemeSelectorWidget(
             themes,
@@ -47,29 +48,7 @@ class SettingsPage(BasePage):
         )
         self.pack_start(theme_selector, False, False, 10)
         
-        # Separator
-        self.add_separator()
-        
-        # Technical specs section (moved up)
-        self.add_subtitle("Technical Specifications")
-        
-        self.add_paragraph(
-            "• GTK Version: GTK+ 3.0\n"
-            "• Python: 3.8+\n"
-            "• Dependencies: PyGObject, pycairo\n"
-            "• Architecture: Modular with page-based routing\n"
-            "• Sidebar Width: 150px\n"
-            "• Logo Area: 150x150px (square)\n"
-            "• Navigation Button Height: 28px\n"
-            "• Navigation Pages: 7 (Home, About, Button03-06, Settings)\n"
-            "• Themes: 7 popular dark themes available\n"
-            "• License: Free for personal and educational use"
-        )
-        
-        # Separator
-        self.add_separator()
-        
-        # Project structure section (moved down)
+        # Project structure section
         self.add_subtitle("Project Structure")
         
         self.add_markup_label(
@@ -110,6 +89,22 @@ class SettingsPage(BasePage):
             "└── README.md                # Documentation"
             "</span>",
             selectable=True
+        )
+        
+        # Technical specs section
+        self.add_subtitle("Technical Specifications")
+        
+        self.add_paragraph(
+            "• GTK Version: GTK+ 3.0\n"
+            "• Python: 3.8+\n"
+            "• Dependencies: PyGObject, pycairo\n"
+            "• Architecture: Modular with page-based routing\n"
+            "• Sidebar Width: 150px\n"
+            "• Logo Area: 150x150px (square)\n"
+            "• Navigation Button Height: 28px\n"
+            "• Navigation Pages: 7 (Home, About, Button03-06, Settings)\n"
+            "• Themes: 10 popular dark themes available\n"
+            "• License: Free for personal and educational use"
         )
     
     def on_theme_changed(self, theme_id):
