@@ -1,7 +1,7 @@
 """
 Home Page
 Dashboard starter template introduction page
-Updated: Combined Linux desktop text with opening
+Updated: Added Linux desktop application information
 """
 
 from pages.page_base import BasePage
@@ -17,12 +17,26 @@ class HomePage(BasePage):
         self.add_title("GTK Python Dashboard Starter Template")
         
         self.add_paragraph(
-            "A modular template for rapid dashboard development using Python and GTK3, "
-            "designed specifically for native Linux desktop applications. Built with GTK3, "
-            "it runs natively across all major Linux distributions including Ubuntu, Debian, "
-            "Linux Mint, Fedora, CentOS, Red Hat Enterprise Linux, Arch Linux, Manjaro, "
-            "EndeavourOS, openSUSE, SUSE Linux Enterprise, Pop!_OS, Elementary OS, Zorin OS, "
-            "MX Linux, Solus, Gentoo, and virtually any Linux distribution with GTK3 support."
+            "A modular template for rapid dashboard development using Python and GTK3."
+        )
+        
+        # Linux Desktop Application section
+        self.add_subtitle("Linux Desktop Application Template")
+        
+        self.add_paragraph(
+            "This template is designed specifically for native Linux desktop applications. "
+            "Built with GTK3, it runs natively across all major Linux distributions including:"
+        )
+        
+        self.add_paragraph(
+            "• Ubuntu, Debian, Linux Mint\n"
+            "• Fedora, CentOS, Red Hat Enterprise Linux\n"
+            "• Arch Linux, Manjaro, EndeavourOS\n"
+            "• openSUSE, SUSE Linux Enterprise\n"
+            "• Pop!_OS, Elementary OS, Zorin OS\n"
+            "• MX Linux, Solus, Gentoo\n"
+            "• And virtually any Linux distribution with GTK3 support",
+            spacing_after=10
         )
         
         # Features section

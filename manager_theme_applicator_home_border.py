@@ -1,6 +1,6 @@
 """
 Theme Applicator
-Fixed: Home button has both top AND bottom borders
+Applies theme colors dynamically including Home button top border
 """
 
 import gi
@@ -147,13 +147,13 @@ headerbar button:active {{
     box-shadow: none;
 }}
 
-/* Navigation button at top (Home) - add top border, KEEP bottom border */
+/* Navigation button at top (Home) - top border instead of bottom */
 .nav-button-top {{
+    border-bottom: none;
     border-top: 1px solid #1a1a1a;
-    border-bottom: 1px solid #1a1a1a;
 }}
 
-/* Navigation button at bottom (Settings) - top border only, no bottom */
+/* Navigation button at bottom (Settings) - top border instead of bottom */
 .nav-button-bottom {{
     border-bottom: none;
     border-top: 1px solid #1a1a1a;
