@@ -1,6 +1,6 @@
 /*
  * GTK Python Dashboard Starter - Dark Theme CSS
- * Updated: 28px buttons, 70px logo area
+ * Updated: Custom link styling (blue color, no underline)
  */
 
 /* ============================================
@@ -18,6 +18,24 @@ window {
 }
 
 /* ============================================
+   Link Styles
+   ============================================ */
+
+* link {
+    color: #0078D7;
+    text-decoration: none;
+}
+
+* link:hover {
+    color: #1084E3;
+    text-decoration: none;
+}
+
+* link:visited {
+    color: #0078D7;
+}
+
+/* ============================================
    Sidebar Styles
    ============================================ */
 
@@ -27,12 +45,12 @@ window {
     min-width: 150px;
 }
 
-/* Logo area - balanced 70px height */
+/* Logo area - square 150x150 */
 .logo-area {
     background-color: #3a3a3a;
     border-bottom: 1px solid #1a1a1a;
-    padding: 12px 0;
-    min-height: 70px;
+    padding: 0;
+    min-height: 150px;
 }
 
 .logo-text {

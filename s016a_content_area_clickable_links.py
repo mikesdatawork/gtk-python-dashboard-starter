@@ -1,7 +1,7 @@
 """
 Content area component
 Scrollable area that displays different pages
-Updated: Resource table with more entries, blue links, no underline
+Updated: Clickable links on About page
 """
 
 import gi
@@ -137,34 +137,27 @@ class ContentArea(Gtk.ScrolledWindow):
         popularity_content.set_xalign(0)
         about_page.pack_start(popularity_content, False, False, 0)
         
-        # Resources section with table
-        resources_label = Gtk.Label(label="GTK Resources & Documentation")
+        # Resources section with CLICKABLE links
+        resources_label = Gtk.Label(label="Example Applications & Resources")
         resources_label.get_style_context().add_class('page-subtitle')
         resources_label.set_xalign(0)
         about_page.pack_start(resources_label, False, False, 5)
         
-        # Create resource table with clickable links
-        resources_table = Gtk.Label()
-        resources_table.set_markup(
-            "<span font_family='monospace' foreground='#d0d0d0'>"
-            "Resource                        Description\n"
-            "──────────────────────────────────────────────────────────────\n"
-            "</span>"
-            "<span font_family='monospace'>"
-            "<a href='https://docs.gtk.org'>GTK Documentation</a>              Official GTK reference\n"
-            "<a href='https://pygobject.readthedocs.io'>PyGObject Docs</a>                 Python bindings guide\n"
-            "<a href='https://developer.gnome.org'>GNOME Developer</a>                Developer resources\n"
-            "<a href='https://github.com/valpackett/awesome-gtk'>Awesome GTK</a>                    Curated app collection\n"
-            "<a href='https://gitlab.gnome.org/GNOME/gtk'>GTK Source Code</a>                Official repository\n"
-            "<a href='https://www.gtk.org'>GTK Official Site</a>              Main project website\n"
-            "<a href='https://discourse.gnome.org'>GNOME Discourse</a>                Community forum\n"
-            "<a href='https://github.com/Rapptz/gTK-Examples'>GTK Examples</a>                   Code examples repo\n"
-            "</span>"
+        resources_intro = Gtk.Label(label="Explore curated collections of GTK applications:")
+        resources_intro.set_xalign(0)
+        about_page.pack_start(resources_intro, False, False, 0)
+        
+        # Create clickable links using markup
+        resources_content = Gtk.Label()
+        resources_content.set_markup(
+            "\n• <a href='https://github.com/valpackett/awesome-gtk'>Awesome GTK</a>\n"
+            "• <a href='https://docs.gtk.org'>GTK Documentation</a>\n"
+            "• <a href='https://pygobject.readthedocs.io'>PyGObject Documentation</a>\n"
+            "• <a href='https://developer.gnome.org'>GNOME Developer Center</a>"
         )
-        resources_table.set_line_wrap(False)
-        resources_table.set_xalign(0)
-        resources_table.set_selectable(True)
-        about_page.pack_start(resources_table, False, False, 0)
+        resources_content.set_line_wrap(True)
+        resources_content.set_xalign(0)
+        about_page.pack_start(resources_content, False, False, 0)
         
         self.stack.add_named(about_page, "about")
         
@@ -197,7 +190,7 @@ class ContentArea(Gtk.ScrolledWindow):
         
         structure_content = Gtk.Label()
         structure_content.set_markup(
-            "<span font_family='monospace' foreground='#d0d0d0'>"
+            "<span font_family='monospace'>"
             "gtk-python-dashboard-starter/\n"
             "├── src/                     # Python source code\n"
             "│   ├── main.py              # Application entry point\n"
@@ -218,7 +211,7 @@ class ContentArea(Gtk.ScrolledWindow):
         )
         structure_content.set_line_wrap(False)
         structure_content.set_xalign(0)
-        structure_content.set_selectable(True)
+        structure_content.set_selectable(True)  # Allow copying
         settings_page.pack_start(structure_content, False, False, 0)
         
         # Color scheme section
@@ -229,7 +222,7 @@ class ContentArea(Gtk.ScrolledWindow):
         
         colors_content = Gtk.Label()
         colors_content.set_markup(
-            "<span font_family='monospace' foreground='#d0d0d0'>"
+            "<span font_family='monospace'>"
             "Component                   Color Code    Description\n"
             "─────────────────────────────────────────────────────────\n"
             "Window Background           #2d2d2d       Darker gray\n"
@@ -246,7 +239,7 @@ class ContentArea(Gtk.ScrolledWindow):
         )
         colors_content.set_line_wrap(False)
         colors_content.set_xalign(0)
-        colors_content.set_selectable(True)
+        colors_content.set_selectable(True)  # Allow copying
         settings_page.pack_start(colors_content, False, False, 0)
         
         # Technical specs section

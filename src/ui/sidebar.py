@@ -1,7 +1,7 @@
 """
 Sidebar component
 Fixed-height dark sidebar with navigation buttons
-Updated: Settings button at bottom of list
+Updated: 150x150 square logo area
 """
 
 import gi
@@ -29,22 +29,22 @@ class Sidebar(Gtk.Box):
         # Track active button
         self.active_button = None
         
-        # Logo area - 70px height, 150px width
+        # Logo area - square 150x150
         logo_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        logo_box.set_size_request(-1, 70)
+        logo_box.set_size_request(150, 150)
         logo_box.get_style_context().add_class('logo-area')
         
-        # Try to load logo - scale to fill most of the area
+        # Try to load logo - scale to fill the square area
         logo_path = os.path.join(os.path.dirname(__file__), '..', '..', 
                                  'resources', 'images', 'logo.png')
         if os.path.exists(logo_path):
             try:
-                # Scale to 140x65 to fill more of the 150x70 area
+                # Scale to 145x145 to fill most of the 150x150 square
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
-                    logo_path, 140, 65, True
+                    logo_path, 145, 145, True
                 )
                 logo_image = Gtk.Image.new_from_pixbuf(pixbuf)
-                logo_box.pack_start(logo_image, True, True, 2)
+                logo_box.pack_start(logo_image, True, True, 0)
             except Exception as e:
                 print(f"Could not load logo: {e}")
                 logo_label = Gtk.Label(label="DASHBOARD")
@@ -65,7 +65,7 @@ class Sidebar(Gtk.Box):
         nav_box.set_margin_start(0)
         nav_box.set_margin_end(0)
         
-        # Define navigation items - Settings moved to bottom
+        # Define navigation items - Settings at bottom
         nav_items = [
             ("Home", "home"),
             ("About", "about"),
