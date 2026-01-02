@@ -1,5 +1,7 @@
 # GTK Python Dashboard Starter Template
 
+![Dashboard Screenshot](resources/images/dashboard.png)
+
 A modular template for rapid dashboard development using Python and GTK3, designed specifically for native Linux desktop applications.
 
 ## Overview
