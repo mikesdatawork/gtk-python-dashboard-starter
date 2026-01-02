@@ -1,7 +1,7 @@
 """
 Settings Page
 Dashboard configuration and technical details
-Updated: Removed horizontal separators
+Updated: Accurate tree structure after cleanup
 """
 
 import gi
@@ -50,7 +50,7 @@ class SettingsPage(BasePage):
         self.add_paragraph(
             "• GTK Version: GTK+ 3.0\n"
             "• Python: 3.8+\n"
-            "• Dependencies: PyGObject, pycairo\n"
+            "• Dependencies: PyGObject, pycairo, Pillow\n"
             "• Architecture: Modular with page-based routing\n"
             "• Sidebar Width: 150px\n"
             "• Logo Area: 150x150px (square)\n"
@@ -66,20 +66,24 @@ class SettingsPage(BasePage):
         self.add_markup_label(
             "<span font_family='monospace' foreground='#d0d0d0'>"
             "gtk-python-dashboard-starter/\n"
-            "├── src/                     # Python source code\n"
-            "│   ├── main.py              # Application entry point\n"
+            "├── src/                     # Application source code\n"
+            "│   ├── main.py              # Entry point\n"
             "│   ├── config/              # Configuration modules\n"
-            "│   │   ├── config_theme.py\n"
-            "│   │   ├── config_layout.py\n"
-            "│   │   └── config_themes.py\n"
+            "│   │   ├── __init__.py\n"
+            "│   │   ├── config_theme.py  # Theme colors/fonts\n"
+            "│   │   ├── config_layout.py # Layout dimensions\n"
+            "│   │   └── config_themes.py # Theme definitions\n"
             "│   ├── ui/                  # UI components\n"
+            "│   │   ├── __init__.py\n"
             "│   │   ├── dashboard_window.py\n"
             "│   │   ├── sidebar.py\n"
             "│   │   ├── content_area.py\n"
-            "│   │   └── components/\n"
+            "│   │   └── components/      # UI widgets\n"
+            "│   │       ├── __init__.py\n"
             "│   │       └── component_theme_selector.py\n"
             "│   ├── pages/               # Page modules\n"
-            "│   │   ├── page_base.py\n"
+            "│   │   ├── __init__.py\n"
+            "│   │   ├── page_base.py     # Base page class\n"
             "│   │   ├── page_home.py\n"
             "│   │   ├── page_about.py\n"
             "│   │   ├── page_button03.py\n"
@@ -88,17 +92,24 @@ class SettingsPage(BasePage):
             "│   │   ├── page_button06.py\n"
             "│   │   └── page_settings.py\n"
             "│   ├── modules/             # Feature modules\n"
+            "│   │   ├── __init__.py\n"
             "│   │   ├── manager_navigation.py\n"
             "│   │   └── manager_theme_applicator.py\n"
             "│   └── utils/               # Utility functions\n"
-            "│       └── manager_theme.py\n"
+            "│       ├── __init__.py\n"
+            "│       └── manager_theme.py # CSS loader\n"
             "├── resources/               # Static resources\n"
-            "│   ├── css/                 # GTK CSS stylesheets\n"
+            "│   ├── css/                 # Stylesheets\n"
+            "│   │   └── style.css\n"
+            "│   ├── fonts/               # Custom fonts\n"
             "│   └── images/              # Images and icons\n"
+            "│       └── logo.png\n"
+            "├── docs/                    # Documentation\n"
+            "├── tests/                   # Test files\n"
+            "├── README.md                # Project documentation\n"
             "├── requirements.txt         # Python dependencies\n"
             "├── setup.py                 # Installation script\n"
-            "├── run.sh                   # Quick launch script\n"
-            "└── README.md                # Documentation"
+            "└── run.sh                   # Quick launch script"
             "</span>",
             selectable=True
         )

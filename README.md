@@ -1,227 +1,220 @@
-# GTK Python Dashboard Starter
+# GTK Python Dashboard Starter Template
 
-![Dashboard Screenshot](resources/images/dashboard.png)
+A modular template for rapid dashboard development using Python and GTK3, designed specifically for native Linux desktop applications.
 
-A modular template for building GTK3 desktop applications using Python and PyGObject. This starter provides a clean foundation for rapid dashboard development on Linux systems.
+## Overview
+
+This template provides a production-ready foundation for building Linux desktop applications with GTK3. It features a clean dark theme, modular architecture, and 7 professional theme options.
+
+## Linux Distribution Support
+
+Built with GTK3, this template runs natively across all major Linux distributions including:
+- Ubuntu, Debian, Linux Mint
+- Fedora, CentOS, Red Hat Enterprise Linux
+- Arch Linux, Manjaro, EndeavourOS
+- openSUSE, SUSE Linux Enterprise
+- Pop!_OS, Elementary OS, Zorin OS
+- MX Linux, Solus, Gentoo
+- Any Linux distribution with GTK3 support
 
 ## Features
 
-- **Modern Dark Theme** - Flat design with custom CSS styling
-- **Fixed Sidebar Navigation** - 150px wide sidebar with customizable buttons
-- **Square Logo Area** - 150x150px perfectly sized for branding
-- **Modular Python Structure** - Organized codebase for easy extension
-- **Page-Based Routing** - Navigation manager for clean page switching
-- **Example Pages** - Button03-06 serve as templates for new pages
-- **No Web Dependencies** - Pure GTK3, no browser or web server needed
-- **Virtual Environment Support** - Isolated Python dependencies
-- **Ready to Customize** - Add pages, change colors, extend functionality
+- **Clean Dark Theme** - Modern flat design with 7 theme variations
+- **Modular Architecture** - Easy to extend with new pages and features
+- **Theme Selector** - Switch between 7 professional dark themes
+- **Fixed Sidebar** - 150px sidebar with logo and navigation
+- **Page-Based Routing** - Independent pages with individual scroll states
+- **GTK3 Native** - No web dependencies, pure GTK widgets
+- **Virtual Environment** - Isolated Python environment
+- **Production Ready** - Clean codebase, well-documented
+
+## Themes
+
+Seven professional dark themes included:
+1. **Default Blue** (#0078D7) - Windows-style blue accent
+2. **Adapta** (#00bcd4) - Cyan accent
+3. **Materia** (#8ab4f8) - Light blue accent
+4. **Dracula** (#bd93f9) - Purple accent
+5. **Nord** (#88c0d0) - Nordic blue accent
+6. **Gruvbox** (#fe8019) - Orange warmth accent
+7. **Monokai** (#f92672) - Pink highlight accent
 
 ## Project Structure
 
 ```
 gtk-python-dashboard-starter/
-├── src/                     # Python source code
-│   ├── main.py              # Application entry point
+├── src/                     # Application source code
+│   ├── main.py              # Entry point
 │   ├── config/              # Configuration modules
-│   │   ├── config_theme.py  # Color scheme, fonts
-│   │   └── config_layout.py # Dimensions, spacing
+│   │   ├── config_theme.py  # Theme colors/fonts
+│   │   ├── config_layout.py # Layout dimensions
+│   │   └── config_themes.py # Theme definitions
 │   ├── ui/                  # UI components
 │   │   ├── dashboard_window.py
 │   │   ├── sidebar.py
 │   │   ├── content_area.py
-│   │   └── components/
+│   │   └── components/      # UI widgets
+│   │       └── component_theme_selector.py
 │   ├── pages/               # Page modules
-│   │   ├── page_base.py     # Base class for all pages
-│   │   ├── page_home.py     # Home page
-│   │   ├── page_about.py    # About GTK page
-│   │   ├── page_button03.py # Example page template
-│   │   ├── page_button04.py # Example page template
-│   │   ├── page_button05.py # Example page template
-│   │   ├── page_button06.py # Example page template
-│   │   └── page_settings.py # Settings/config page
+│   │   ├── page_base.py     # Base page class
+│   │   ├── page_home.py
+│   │   ├── page_about.py
+│   │   ├── page_button03.py
+│   │   ├── page_button04.py
+│   │   ├── page_button05.py
+│   │   ├── page_button06.py
+│   │   └── page_settings.py
 │   ├── modules/             # Feature modules
-│   │   └── manager_navigation.py
+│   │   ├── manager_navigation.py
+│   │   └── manager_theme_applicator.py
 │   └── utils/               # Utility functions
-│       └── manager_theme.py
+│       └── manager_theme.py # CSS loader
 ├── resources/               # Static resources
-│   ├── css/                 # GTK CSS stylesheets
+│   ├── css/                 # Stylesheets
 │   │   └── style.css
+│   ├── fonts/               # Custom fonts
 │   └── images/              # Images and icons
-│       ├── logo.png
-│       └── dashboard.png
+│       └── logo.png
+├── docs/                    # Documentation
+├── tests/                   # Test files
+├── README.md                # This file
 ├── requirements.txt         # Python dependencies
 ├── setup.py                 # Installation script
-├── run.sh                   # Quick launch script
-└── README.md                # This file
+└── run.sh                   # Quick launch script
 ```
 
 ## Installation
 
-### System Dependencies (Debian/Ubuntu)
+### Prerequisites
+- Python 3.8 or higher
+- GTK+ 3.0
+- pip (Python package manager)
+
+### Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/mikesdatawork/gtk-python-dashboard-starter.git
+   cd gtk-python-dashboard-starter
+   ```
+
+2. **Run the application**
+   ```bash
+   ./run.sh
+   ```
+   
+   The `run.sh` script will:
+   - Create a virtual environment (if needed)
+   - Install dependencies
+   - Launch the application
+
+### Manual Installation
+
+If you prefer to set up manually:
 
 ```bash
-sudo apt-get update
-sudo apt-get install python3 python3-pip python3-gi python3-gi-cairo gir1.2-gtk-3.0
-```
-
-### Python Dependencies
-
-```bash
-# Create virtual environment (recommended)
+# Create virtual environment
 python3 -m venv venv
 source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
-```
 
-## Running the Application
-
-### Quick Start
-
-```bash
-./run.sh
-```
-
-### Or run directly
-
-```bash
+# Run application
 python3 src/main.py
 ```
 
-### With virtual environment
+## Usage
 
-```bash
-source venv/bin/activate
-python3 src/main.py
-```
-
-## Customization
-
-### Add New Pages
+### Adding New Pages
 
 1. Create a new page module in `src/pages/`:
-
-```python
-# src/pages/page_mypage.py
-from pages.page_base import BasePage
-
-class MyPage(BasePage):
-    def build_content(self):
-        self.add_title("My Custom Page")
-        self.add_paragraph("Your content here")
-```
+   ```python
+   from pages.page_base import BasePage
+   
+   class MyNewPage(BasePage):
+       def build_content(self):
+           self.add_title("My New Page")
+           self.add_paragraph("Page content here...")
+   ```
 
 2. Register the page in `src/ui/content_area.py`:
-
-```python
-from pages.page_mypage import MyPage
-
-# In register_pages():
-mypage = MyPage()
-self.stack.add_named(mypage, "mypage")
-self.nav_manager.register_page("mypage", mypage)
-```
+   ```python
+   from pages.my_new_page import MyNewPage
+   
+   # In register_pages():
+   my_page = MyNewPage()
+   self.register_page("mypage", my_page)
+   ```
 
 3. Add navigation button in `src/ui/sidebar.py`:
+   ```python
+   nav_items = [
+       ("My Page", "mypage"),
+       # ... other items
+   ]
+   ```
 
-```python
-# In nav_items list:
-("My Page", "mypage"),
-```
+### Customizing Themes
 
-### Modify Sidebar Navigation
+Themes are defined in `src/config/config_themes.py`. Each theme includes:
+- Accent color
+- Sidebar background
+- Window background
+- Hover color
 
-Edit `src/ui/sidebar.py` to change button labels, add new navigation items, or change button order.
+To add a new theme, add an entry to the `DARK_THEMES` dictionary.
 
-### Change Colors
+### Modifying Layout
 
-Edit `src/config/config_theme.py` to customize the color scheme. Key colors:
-- Window Background: `#2d2d2d`
-- Sidebar: `#353535`
-- Active Button: `#0078D7`
-- Text: `#eeeeee`
-
-Or edit `resources/css/style.css` directly for fine-grained control.
-
-### Replace Logo
-
-Replace `resources/images/logo.png` with your own 150x150px image.
-
-### Adjust Dimensions
-
-Edit `src/config/config_layout.py` to change sidebar width, button height, margins, etc.
-
-## Navigation Pages
-
-The template includes 7 navigation pages:
-
-1. **Home** - Introduction to the dashboard starter
-2. **About** - GTK information, platforms, resources
-3. **Button03** - Example page template
-4. **Button04** - Example page template
-5. **Button05** - Example page template
-6. **Button06** - Example page template
-7. **Settings** - Configuration and technical details (bottom of sidebar)
-
-Example pages (Button03-06) serve as templates for creating your own custom pages.
-
-## Color Scheme
-
-| Component | Color Code | Description |
-|-----------|------------|-------------|
-| Window Background | #2d2d2d | Darker gray |
-| Sidebar Background | #353535 | Dark gray |
-| Logo Area | #3a3a3a | Medium dark gray |
-| Active Button | #0078D7 | Windows blue |
-| Button Hover | #404040 | Medium gray |
-| Text (main) | #eeeeee | Off-white |
-| Text (secondary) | #d0d0d0 | Light gray |
-| Primary Accent | #0078D7 | Windows blue |
-| Borders | #1a1a1a | Almost black |
+Layout dimensions are centralized in `src/config/config_layout.py`:
+- Sidebar width
+- Logo dimensions
+- Button heights
+- Spacing values
 
 ## Technical Specifications
 
 - **GTK Version**: GTK+ 3.0
 - **Python**: 3.8+
-- **Dependencies**: PyGObject, pycairo
+- **Dependencies**: PyGObject, pycairo, Pillow
 - **Architecture**: Modular with page-based routing
-- **Sidebar Width**: 150px
-- **Logo Area**: 150x150px (square)
-- **Navigation Button Height**: 28px
-- **Navigation Pages**: 7 (Home, About, Button03-06, Settings)
-- **Theme**: Custom dark flat theme
-- **Naming Convention**: `config_*`, `page_*`, `manager_*`
+- **Sidebar**: 150px fixed width
+- **Logo**: 150x150px square
+- **Navigation Buttons**: 28px height
+- **Pages**: 7 navigation pages
+- **Themes**: 7 dark themes
 
-## Modular Architecture
+## Development
 
-This template follows a modular design pattern:
+### Running Tests
+```bash
+pytest tests/
+```
 
-- **config/** - Centralized configuration (theme, layout)
-- **pages/** - Individual page modules (inherit from BasePage)
-- **modules/** - Feature managers (navigation, etc.)
-- **utils/** - Utility functions (theme loading, etc.)
-- **ui/** - UI components (window, sidebar, content area)
-
-Each page is a separate module, making it easy to add, remove, or modify pages without affecting others.
-
-## GTK Resources
-
-- [GTK Documentation](https://docs.gtk.org)
-- [PyGObject Documentation](https://pygobject.readthedocs.io)
-- [GNOME Developer Center](https://developer.gnome.org)
-- [Awesome GTK Apps](https://github.com/valpackett/awesome-gtk)
+### Code Structure
+- **config/** - Centralized configuration (themes, colors, layout)
+- **ui/** - User interface components (window, sidebar, content area)
+- **pages/** - Individual page modules inheriting from BasePage
+- **modules/** - Feature modules (navigation, theme application)
+- **utils/** - Utility functions (CSS loading, etc.)
 
 ## License
 
-Free for personal, educational, and non-commercial use.
-
-Commercial use requires explicit written permission from the author.
+Free for personal and educational use.
 
 ## Contributing
 
-Issues and pull requests welcome. Please ensure code follows the existing style and structure.
+This is a template project. Fork it and customize for your needs.
 
-## About
+## Repository
 
-This template was created to provide a solid foundation for Python GTK3 desktop applications. It emphasizes clean code structure, modern design, modularity, and ease of customization.
+https://github.com/mikesdatawork/gtk-python-dashboard-starter
+
+## Author
+
+mikesdatawork
+
+---
+
+**Note**: This template is designed as a starting point. Customize the pages, themes, and functionality to match your project requirements.
