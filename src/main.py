@@ -1,39 +1,36 @@
 #!/usr/bin/env python3
 """
 GTK Python Dashboard Starter
-Main application entry point
+Main application entry point - refactored for modularity
 """
 
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gdk
+from gi.repository import Gtk
 import sys
-import os
 
 from ui.dashboard_window import DashboardWindow
+from utils.manager_theme import ThemeManager
+from modules.manager_navigation import NavigationManager
+from config.config_theme import Theme
 
 
 def main():
     """Main application entry point"""
-    # Load CSS
-    css_provider = Gtk.CssProvider()
-    css_file = os.path.join(os.path.dirname(__file__), '..', 'resources', 'css', 'style.css')
     
-    if os.path.exists(css_file):
-        css_provider.load_from_path(css_file)
-        screen = Gdk.Screen.get_default()
-        style_context = Gtk.StyleContext()
-        style_context.add_provider_for_screen(
-            screen,
-            css_provider,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        )
+    # Initialize managers
+    theme_manager = ThemeManager()
+    navigation_manager = NavigationManager()
+    
+    # Load theme CSS
+    theme_manager.load_css(Theme.CSS_FILE)
     
     # Create and show main window
-    window = DashboardWindow()
+    window = DashboardWindow(navigation_manager)
     window.connect("destroy", Gtk.main_quit)
     window.show_all()
     
+    # Start GTK main loop
     Gtk.main()
     return 0
 
