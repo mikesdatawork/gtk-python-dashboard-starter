@@ -2,6 +2,10 @@
 
 ![Dashboard Screenshot](resources/images/dashboard.png)
 
+## Demo
+
+![Navigation Demo](resources/videos/gtk-starter-dashboard-demo.gif)
+
 A modular template for rapid dashboard development using Python and GTK3, designed specifically for native Linux desktop applications.
 
 ## Overview
@@ -75,8 +79,10 @@ gtk-python-dashboard-starter/
 │   ├── css/                 # Stylesheets
 │   │   └── style.css
 │   ├── fonts/               # Custom fonts
-│   └── images/              # Images and icons
-│       └── logo.png
+│   ├── images/              # Images and icons
+│   │   └── logo.png
+│   └── videos/              # Demo videos
+│       └── gtk-starter-dashboard-demo.gif
 ├── docs/                    # Documentation
 ├── tests/                   # Test files
 ├── README.md                # This file
